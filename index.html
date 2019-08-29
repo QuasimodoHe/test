@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<script src="scripts/jquery-2.2.3.js"></script>
 	</head>
 	<body>
-                test
-		alert('test')
-		<script type="text/javascript">
-			
-			wx.downloadFile({
-  				url: 'https://uat.jhjhome.com/policy.pdf',
-  				success: function (res) {
-    					var filePath = res.tempFilePath 
-   					wx.openDocument({
-     					filePath: filePath,
-     					success: function (res) {
-       						console.log('打开文档成功')
-     					} 
-   					})
-  				}
-  			})
-		</script>
+                 
+      <iframe id="iframe" frameborder="0" style="position: absolute;border: navajowhite;left: 0;height: calc(100% - 30px);width:100%">
+     </iframe>
+
+ <script>
+ $(function () {
+     setTimeout(function () {
+         iframe.src = "https://uat.jhjhome.com/policy.pdf";
+     },5000);
+ });
+ document.body.onbeforeunload = function (event) {
+     var rel = "asdfawfewf";
+     if (!window.event) {
+         event.returnValue = rel;
+     } else {
+         window.event.returnValue = rel;
+     }
+ };
+ </script>
 	</body>
 </html>
